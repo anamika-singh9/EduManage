@@ -1,4 +1,4 @@
-# Seth Anandram Jaipuria School, Ved Campus – Barabanki — School Management System
+# EduManage — School Management System
 
 A full-stack **Django + Django REST Framework** platform with role-based portals for **Admins, Teachers, Students and Parents**, a documented REST API, PDF report cards, CSV exports and a deployment-ready configuration (PostgreSQL, WhiteNoise, Gunicorn).
 
@@ -62,16 +62,6 @@ python manage.py runserver
 ```
 Open http://127.0.0.1:8000/ — login at `/login/`.
 
-### Demo accounts
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@gmail.com | admin |
-| Teacher | anamika@gmail.com | 12345 |
-| Student | bushra@gmail.com | 12345 |
-| Parent | parent@gmail.com | 12345 |
-
-*Change these before any public deployment.*
-
 ## REST API
 - Interactive docs (Swagger): **`/api/docs/`** · OpenAPI schema: `/api/schema/`
 - Base path: `/api/v1/`
@@ -94,7 +84,7 @@ curl -H "Authorization: Bearer $TOKEN" "localhost:8000/api/v1/students/?search=b
 
 ## Tests
 ```bash
-python manage.py test        # 43 tests
+python manage.py test        
 ```
 
 ## Deployment (Render / Railway / similar)
@@ -111,3 +101,8 @@ Add screenshots to a `docs/` folder and link them here (login, admin dashboard, 
 - Replace string links (`Student.sclass`, `Teacher.tclass`) with `ForeignKey`s + typed `DateField`/`DecimalField`s
 - Timetable, assignments, fee-receipt PDFs, email notifications
 - Front-end SPA (React) consuming the existing API
+
+## 👩‍💻 Author
+
+**Anamika Singh**
+BTech CSE – Data Science & Artificial Intelligence
