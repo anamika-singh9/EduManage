@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Founder’s Message
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    Founder’s Message
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class="col-sm-3 ">
+                <div class="card p-3"><img src="/static/images/foundermsg/founder.jpg" alt=""  class="pb-3"></div>
+                <h3 class="text-primary text-center">Shri Sadhu Ram Ji</h3>
+                <h5 class="text-center">Founder</h5>
+            </div>
+            <div class="col-sm-6 text-center p-5" >
+                <h6 class="fs-3">Dear Parents, Guardians and Students,</h6>
+                <span >
+                    The journey of Seth Anandram Jaipuria School begins with a profound commitment to bridge the gap in educational access and quality that persists in rural areas. Having grown up in a similar environment, I understand first-hand the challenges faced by students who aspire for a modern and English-based education but lack the means to pursue it.
+                    <br><br>
+                    It is this very understanding that has fuelled our mission to establish a school that not only imparts knowledge but also nurtures dreams. Our curriculum is meticulously designed to blend traditional values with contemporary teaching methodologies, ensuring that every student receives a holistic education that prepares them for success in the 21st century.
+                </span>
+            </div>
+            <div class="col-sm-3 text-end">
+                <div class="card p-3"><img src="/static/images/foundermsg/foundermsg1.jpg" alt="" class="pb-3"></div>
+                <h3 class="text-primary text-center">Smt. Sushmawati Ji</h3>
+                <h5 class="text-center">Founder</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-10 mx-auto p-5">
+        <span>
+            At our school, we envision a learning environment where curiosity is encouraged, critical thinking is fostered, and creativity is celebrated. Through interactive classrooms, state-of-the-art facilities, and a dedicated team of educators, we aim to ignite a passion for learning that transcends boundaries and empowers students to realize their full potential.
+            <br><br>
+            As we embark on this journey together, I invite you to join us in shaping a future where every child has access to quality education. Together, let us sow the seeds of knowledge, nurture the aspirations of our youth, and build a brighter tomorrow for generations to come.
+            <br><br>
+            Thank you for entrusting us with the education of your children. We look forward to partnering with you in this noble endeavour.
+        </span>
+    </div>
+</div>
+<!-- main end -->
+{% endblock %}

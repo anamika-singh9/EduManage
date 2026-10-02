@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<style>
+    .fs-cl {
+        color: #771b22;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / MEDICAL ROOM 
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">  MEDICAL ROOM 
+                </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10 ">
+   <h1> MEDICAL ROOM</h1> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10 ">
+    <p>We have an experienced doctor and a trained nurse to provide necessary first aid to the students in a time of emergency. An annual health check-up including dental and eye check-ups by specialists is a regular feature along with maintaining a medical record of each and every child. Health advisory on prevention of various illnesses like swine flu, dengue, chickenpox, etc. is also a regular feature.
+    </p>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8 ">
+    <h5 class="fw-bold">Please Note:
+    </h5>
+  </div>
+</div>
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-7 mt-2">
+          <div style="display: flex;">
+              <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+              <div class="ms-2">
+                  <p>  
+              Students will be provided first aid only in the school premises in case of medical problem
+                  </p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-7 mt-2">
+          <div style="display: flex;">
+              <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+              <div class="ms-2">
+                  <p>  
+                    In case of chronic diseases, school will only inform the parents telephonically. Parents will be expected to reach school at the earliest.
+                  </p>
+              </div>
+          </div>
+      </div>
+ 
+  </div>
+</div>
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-7 mt-2">
+          <div style="display: flex;">
+              <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+              <div class="ms-2">
+                  <p>           
+                Expenses on first aid will be borne by the school. All other expenses in case of hospitalization/ visit to private clinic/ medicine will be borne by the parents.
+                  </p>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+<!-- main end -->
+{% endblock %}

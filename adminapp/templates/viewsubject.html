@@ -1,0 +1,15 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-sm-12">
+  <div class="d-flex justify-content-between align-items-center my-3"><h1 class="mb-0">Subjects</h1>
+    <a href="{% url 'adminapp:addsubject' %}" class="btn btn-primary">+ Add Subject</a></div>
+  <table class="table table-striped align-middle">
+    <tr><th>#</th><th>Subject</th><th>Class</th><th>Book</th><th>Teacher</th><th>Created</th><th>Action</th></tr>
+    {% for s in sub %}
+    <tr><td>{{forloop.counter}}</td><td>{{s.subject_name}}</td><td>{{s.sclass}}</td><td>{{s.book}}</td><td>{{s.steacher}}</td><td>{{s.created_date}}</td>
+      <td class="text-nowrap"><a href="{% url 'adminapp:editsubject' s.sid %}" class="btn btn-sm btn-success">Edit</a>
+        <form method="post" action="{% url 'adminapp:deletesubject' s.sid %}" class="d-inline" onsubmit="return confirm('Delete this subject?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="7" class="text-center">No subjects added.</td></tr>{% endfor %}
+  </table>
+</div></div>
+{% endblock %}

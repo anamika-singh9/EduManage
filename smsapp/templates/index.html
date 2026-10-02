@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container-fluid p-0">
+      <!-- slider start -->
+    <div class="row mt-2 ">
+      <div class="col-sm-12 p-0">
+      <div id="carouselExample" class="carousel slide ">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="{% static 'images/asset 1.jpeg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/asset 2.jpeg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+    <!-- slider end -->
+    <!-- Notification start -->
+     <div class="row my-2">
+      <div class="col-sm-10 mx-auto">
+        <div class="row">
+          <div class="col-md-3 bg-danger">
+            <h2 class="text-light">Notification</h2>
+          </div>
+          <div class="col-md-9">
+            <marquee behavior="" direction="">
+              {% for n in noti %}
+              <span>
+                <a href="{{n.doc.url}}" target="_blank">{{n.text}}</a>
+              </span>
+              {% endfor %}
+            </marquee>
+          </div>
+        </div>
+      </div>
+     </div>
+     <!-- Notification end -->
+     <!-- main stat -->
+    <div class="row bg-danger ">
+      <div class="col-sm-12 text-white" style="color: #9e313f;">
+        <h6 class="text-center">TO KNOW ONLINE ADMISSION PROCESS, CALL – 9151118324, 9151118325</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2>Welcome to Seth Anandram Jaipuria School</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-sm-11 mx-auto">
+        <div class="row">
+          <div class="col-sm-6">
+            <div>
+              <div><iframe width="455" height="315" src="https://www.youtube.com/embed/M1156iKJgNo?si=qAnUDLpFmioWD3Fs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="card-body">
+                <small class="card-text">We, at Seth Anandram Jaipuria School, are committed to our motto ‘Empower, Enthuse and Excel’ in providing quality education and teaching every child the necessary values to guide him/her through the journey of life. The school endows education for LIFE! Our prime mission is to create opportunities through a stimulating, safe, collaborative, and supportive environment that help student in attaining personal mastery, team spirit, and academic excellence.
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6" id="hov">
+            <div >
+              <img src="../static/images/c1.jpeg" class="card-img-top" alt="...">
+              <div class="card-body mb-5">
+                <p class="card-text mt-4">
+                  <a href="{% url 'newsevent' %}" style="text-decoration: none;">
+                   Latest School News & Updates</a>
+                </p>
+                <a href="{% url 'newsevent' %}" style="text-decoration: none;">Read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-11 mx-auto">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card h-100">
+              <img src="../static/images/c3.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">PRE-PRIMARY & PRIMARY SCHOOL</h4>
+                <p>The goal of education is not to increase the amount of knowledge but to create the possibilities for a child to invent and discover, to create individuals who are capable of doing.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card h-100">
+              <img src="../static/images/c2.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">MIDDLE SCHOOL</h4>
+                <p>Student-centered teaching strategies focus instruction on the needs, preferences, and interests of the learner. Teachers act as facilitators of the learning process.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card h-100">
+              <img src="../static/images/s2.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">SENIOR SCHOOL</h4>
+                <p>Senior School focuses on academic excellence and prepares students for board examinations, higher education and future careers by building critical thinking, discipline and independent learning skills.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+               
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12" id="img">
+        <div class="row mx-auto mt-5" >
+          <div class="col-sm-4" style="background-color:rgb(94,95,122,0.6);">
+            <h5>Admissions Open 2026-27</h5>
+            <small>Seth Anandram Jaipuria School, Ved Campus, Barabanki
+            </small>
+          </div>
+          <div class="col-sm-8 text-end">
+            <a href="{% url 'admission' %}" class="btn btn-warning">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- main end -->
+</div>
+{% endblock %}

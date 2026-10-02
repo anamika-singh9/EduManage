@@ -1,0 +1,13 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-10 mx-auto">
+  <h1 class="text-center">Parents</h1>
+  <a href="{% url 'adminapp:addparent' %}" class="btn btn-primary mb-3">Add Parent</a>
+  <table class="table"><tr><th>#</th><th>Name</th><th>Contact</th><th>Email</th><th>Children</th><th>Action</th></tr>
+  {% for p in parents %}<tr><td>{{forloop.counter}}</td><td>{{p.name}}</td><td>{{p.contact}}</td><td>{{p.user.username}}</td>
+    <td>{% for c in p.children.all %}{{c.name}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+    <td><form method="post" action="{% url 'adminapp:deleteparent' p.id %}" onsubmit="return confirm('Delete this parent account?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+  {% empty %}<tr><td colspan="6" class="text-center">No parents added.</td></tr>{% endfor %}
+  </table>
+</div></div>
+{% endblock %}

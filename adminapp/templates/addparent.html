@@ -1,0 +1,17 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-8 mx-auto">
+  <h1 class="text-center">Add Parent</h1>
+  <form method="post">{% csrf_token %}
+    <input name="name" class="form-control mb-2" placeholder="Parent name" required>
+    <input name="contact" class="form-control mb-2" placeholder="Contact number" required>
+    <input name="emailaddress" type="email" class="form-control mb-2" placeholder="Email (login id)" required>
+    <input name="password" type="password" class="form-control mb-2" placeholder="Password (default 12345)">
+    <label class="mb-1">Children</label>
+    <select name="children" class="form-select mb-3" multiple required>
+      {% for s in students %}<option value="{{s.id}}">{{s.name}} ({{s.sclass}}, Roll {{s.rollno}})</option>{% endfor %}
+    </select>
+    <button class="btn btn-primary">Save Parent</button>
+  </form>
+</div></div>
+{% endblock %}

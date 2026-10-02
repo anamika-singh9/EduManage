@@ -1,0 +1,24 @@
+{% extends 'studentbase.html' %}
+{% block student %}
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="text-center">My Results</h1>
+    {% for d in data %}
+    <div class="card mt-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <b>{{d.exam.name}}</b> <span>{{d.exam.exam_date}}</span>
+        <a href="{% url 'studentapp:reportcard' d.exam.id %}" class="btn btn-sm btn-primary">Download Report Card (PDF)</a>
+      </div>
+      <table class="table mb-0">
+        <tr><th>Subject</th><th>Marks</th><th>Max</th><th>%</th><th>Grade</th></tr>
+        {% for r in d.results %}
+        <tr><td>{{r.subject_name}}</td><td>{{r.marks_obtained}}</td><td>{{r.max_marks}}</td><td>{{r.percentage}}</td><td>{{r.grade}}</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% empty %}
+    <p class="text-center mt-4">No results published yet.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

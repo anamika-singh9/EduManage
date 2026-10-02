@@ -1,0 +1,13 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-7 mx-auto">
+  <h1 class="text-center my-3">Edit Subject</h1>
+  <form method="post" class="row g-3">{% csrf_token %}
+    <div class="col-12"><label class="form-label">Subject Name</label><input name="subject_name" value="{{sub.subject_name}}" class="form-control" required></div>
+    <div class="col-12"><label class="form-label">Class</label><select name="sclass" class="form-select">{% for c in cl %}<option {% if c.class_name == sub.sclass %}selected{% endif %}>{{c.class_name}}</option>{% endfor %}</select></div>
+    <div class="col-12"><label class="form-label">Book</label><input name="book" value="{{sub.book}}" class="form-control" required></div>
+    <div class="col-12"><label class="form-label">Subject Teacher</label><select name="steacher" class="form-select">{% for t in teachers %}<option {% if t.name == sub.steacher %}selected{% endif %}>{{t.name}}</option>{% endfor %}</select></div>
+    <div class="col-12"><button class="btn btn-primary">Save Changes</button> <a href="{% url 'adminapp:viewsubject' %}" class="btn btn-outline-secondary">Cancel</a></div>
+  </form>
+</div></div>
+{% endblock %}

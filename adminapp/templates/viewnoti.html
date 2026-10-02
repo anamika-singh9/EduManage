@@ -1,0 +1,14 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-10 mx-auto">
+  <div class="d-flex justify-content-between align-items-center my-3"><h1 class="mb-0">Notifications</h1>
+    <a href="{% url 'adminapp:addnoti' %}" class="btn btn-primary">+ Add Notification</a></div>
+  <table class="table table-striped align-middle">
+    <tr><th>#</th><th>Text</th><th>Attachment</th><th>Date</th><th>Action</th></tr>
+    {% for n in noti %}
+    <tr><td>{{forloop.counter}}</td><td>{{n.text}}</td><td>{% if n.doc %}<a href="{{n.doc.url}}" target="_blank">View file</a>{% endif %}</td><td>{{n.created_date}}</td>
+      <td><form method="post" action="{% url 'adminapp:deletenoti' n.id %}" onsubmit="return confirm('Delete this notification?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="5" class="text-center">No notifications yet.</td></tr>{% endfor %}
+  </table>
+</div></div>
+{% endblock %}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row py-3 bg-danger">
+            <div class="col-sm-9 text-white">
+                <h3>Welcome to Teacher Pannel</h3>
+            </div>
+            <div class="col-sm-3 dropdown">
+                <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</button>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'teacherapp:profile' %}" class="dropdown-item">Profile</a></li>
+                    <li><a href="{% url 'teacherapp:tchangepass' %}" class="dropdown-item">Change Password</a></li>
+                    <li><a href="{% url 'teacherapp:teacherlogout' %}" class="dropdown-item">Logout</a></li>
+                </ul>
+                <span class="me-2 text-white text-decoration-none">{{teacher.name}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 mt-3">
+                <h3 class="text-center">Teacher Dashboard</h3>
+                <a href="{% url 'teacherapp:teacherhome' %}" class="btn btn-dark w-100 mt-2">Dashboard</a>
+                <a href="{% url 'examapp:exams' %}" class="btn btn-dark w-100 mt-2">Exams & Results</a>
+                <div class="dropdown">
+                    <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Manage Attendance
+                    </a>
+                    <ul class="dropdown-menu text-end bg-dark ">
+                        <li><a class="dropdown-item text-primary" href="{% url 'teacherapp:addattend' %}">Add Attendance</a></li>
+                        <li><a class="dropdown-item text-primary" href="{% url 'teacherapp:viewattend' %}">View Attendance</a></li>
+
+                    </ul>
+                    <div class="dropdown">
+                        <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            SLM management
+                        </a>
+                        <ul class="dropdown-menu text-end bg-dark ">
+                            <li><a class="dropdown-item text-primary" href="{% url 'teacherapp:addslm' %}">Add SLM</a></li>
+                            <li><a class="dropdown-item text-primary" href="{% url 'teacherapp:viewslm' %}">View SLM</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="dropdown">
+                        <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Manage Subject
+                        </a>
+                        <ul class="dropdown-menu text-end bg-dark ">
+                            <li><a class="dropdown-item text-primary" href="#">Add Subject</a></li>
+                            <li><a class="dropdown-item text-primary" href="#">View Subject</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Manage Student
+                        </a>
+                        <ul class="dropdown-menu text-end bg-dark ">
+                            <li><a class="dropdown-item text-primary" href="#">Add Student</a></li>
+                            <li><a class="dropdown-item text-primary" href="#">View Student</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Manage Student
+                        </a>
+                        <ul class="dropdown-menu text-end bg-dark ">
+                            <li><a class="dropdown-item text-primary" href="#">Add Student</a></li>
+                            <li><a class="dropdown-item text-primary" href="#">View Student</a></li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="btn btn-dark w-100 mt-2">View Enquiry</a>-->
+                    <a href="{% url 'teacherapp:profile' %}" class="btn btn-dark w-100 mt-2">Update</a>
+                    <a href="{% url 'teacherapp:tchangepass' %}" class="btn btn-dark w-100 mt-2">Change Password</a>
+                    <a href="{% url 'teacherapp:teacherlogout' %}" class="btn btn-dark w-100 mt-2">Logout</a>
+
+                </div> 
+            </div>
+            <div class="col-sm-9">
+                {% for m in messages %}<div class="alert alert-{% if m.tags == 'error' %}danger{% else %}{{m.tags}}{% endif %} alert-dismissible fade show mt-2" role="alert">{{m}}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>{% endfor %}
+            {% block teacher %}
+
+                {% endblock %}
+            </div>
+        </div>
+</body>
+
+</html>

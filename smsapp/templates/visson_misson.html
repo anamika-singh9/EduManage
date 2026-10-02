@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Vision & Mission
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                        Vision & Mission
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row">
+    <div class="col-sm-10 mx-auto mt-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card"><img src="{% static 'images/about/asset 1.jpeg' %}" alt=""></div>
+            </div>
+            <div class="col-sm-6 card-body">
+                <h3 class="mt-5">VISION </h3>
+                <span class="mt-5" style="color:#c4c4c4;">We aim to nurture happy and confident children by providing
+                    child- centric learning. Our endeavor is to promote creativity, environmental sensitivity and
+                    academic excellence. We help inculcate a spirit of lifelong learning for our children to become
+                    effective change agents.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 card-body">
+                <h3 class="mt-5">MISSION </h3>
+                <span class="mt-5" style="color:#c4c4c4;">We repeatedly strive towards excellence in education by adopting a holistic and dynamic curriculum and providing a safe and nurturing environment to all learners. We recognize the significance of imparting a world class educational experience that prepares children for the future. We are a school that celebrates excellence and espouses traditional Indian values in students. Our prime mission is to ensure that the children are academically proficient, responsive to Indian culture and heritage, and display a scientific temper in an environment of sharing and caring.
+            </div>
+            <div class="col-sm-6">
+                <div class="card"><img src="{% static 'images/about/asset 2.jpeg' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main end -->
+{% endblock %}

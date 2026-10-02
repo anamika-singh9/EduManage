@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="row"><div class="col-sm-12 bg-danger" style="height: 5px;"></div></div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small> / Career</small>
+            <h3><u class="text-primary"><span class="text-white">Career</span></u></h3>
+        </div>
+    </div>
+</div>
+<div class="row mt-5 mb-5">
+    <div class="col-sm-10 mx-auto">
+
+        <h2>CAREER WITH US</h2>
+        <p>We are always looking for passionate, qualified educators and support staff who share our motto —
+        <b>Empower, Enthuse and Excel</b>. Teachers are selected through a rigorous process and are supported with continuous training.</p>
+        <p>Interested candidates may send their updated resume, along with qualifications and experience details, to
+        <a href="mailto:admission.barabanki@jaipuria.school">admission.barabanki@jaipuria.school</a>,
+        or call the school office on 9151118324 / 9151118325.</p>
+        <p>You can also reach us through the <a href="{% url 'contact' %}">Contact page</a>.</p>
+
+    </div>
+</div>
+{% endblock %}

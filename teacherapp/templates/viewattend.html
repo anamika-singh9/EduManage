@@ -1,0 +1,26 @@
+{% extends 'teacherbase.html' %}
+{% block teacher %}
+<div class="row"><div class="col-sm-12">
+  <div class="d-flex justify-content-between align-items-center my-3"><h1 class="mb-0">Attendance Records</h1>
+    <a href="{% url 'teacherapp:addattend' %}" class="btn btn-primary">Mark / Edit Attendance</a></div>
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-auto"><input type="date" name="date" value="{{date}}" class="form-control"></div>
+    <div class="col-md-4"><input name="q" value="{{q}}" class="form-control" placeholder="Student name"></div>
+    <div class="col-auto"><button class="btn btn-dark">Filter</button> <a href="{% url 'teacherapp:viewattend' %}" class="btn btn-outline-secondary">Reset</a></div>
+  </form>
+  <p><span class="badge bg-success">Present: {{present}}</span> <span class="badge bg-danger">Absent: {{absent}}</span></p>
+  <table class="table table-striped align-middle">
+    <tr><th>#</th><th>Roll No</th><th>Name</th><th>Class</th><th>Date</th><th>Status</th><th>Action</th></tr>
+    {% for a in att %}
+    <tr><td>{{forloop.counter}}</td><td>{{a.rollno}}</td><td>{{a.name}}</td><td>{{a.sclass}}</td><td>{{a.created_date}}</td>
+      <td>{% if a.status == 'P' %}<span class="badge bg-success">Present</span>{% else %}<span class="badge bg-danger">Absent</span>{% endif %}</td>
+      <td><form method="post" action="{% url 'teacherapp:delattend' a.id %}" onsubmit="return confirm('Delete this record?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="7" class="text-center">No attendance records found.</td></tr>{% endfor %}
+  </table>
+  {% if page.paginator.num_pages > 1 %}<nav><ul class="pagination justify-content-center">
+    {% if page.has_previous %}<li class="page-item"><a class="page-link" href="?page={{page.previous_page_number}}&{{qstring}}">&laquo;</a></li>{% endif %}
+    <li class="page-item disabled"><span class="page-link">Page {{page.number}} of {{page.paginator.num_pages}}</span></li>
+    {% if page.has_next %}<li class="page-item"><a class="page-link" href="?page={{page.next_page_number}}&{{qstring}}">&raquo;</a></li>{% endif %}
+  </ul></nav>{% endif %}
+</div></div>
+{% endblock %}

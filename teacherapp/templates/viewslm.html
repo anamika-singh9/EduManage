@@ -1,0 +1,14 @@
+{% extends 'teacherbase.html' %}
+{% block teacher %}
+<div class="row"><div class="col-sm-12">
+  <div class="d-flex justify-content-between align-items-center my-3"><h1 class="mb-0">Study Material</h1>
+    <a href="{% url 'teacherapp:addslm' %}" class="btn btn-primary">+ Upload</a></div>
+  <table class="table table-striped align-middle">
+    <tr><th>#</th><th>Title</th><th>Class</th><th>Date</th><th>File</th><th>Action</th></tr>
+    {% for m in slm %}
+    <tr><td>{{forloop.counter}}</td><td>{{m.title}}</td><td>{{m.tclass}}</td><td>{{m.created_date}}</td><td><a href="{{m.sm.url}}" target="_blank">Download</a></td>
+      <td><form method="post" action="{% url 'teacherapp:delslm' m.id %}" onsubmit="return confirm('Delete this file?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="6" class="text-center">No study material uploaded yet.</td></tr>{% endfor %}
+  </table>
+</div></div>
+{% endblock %}

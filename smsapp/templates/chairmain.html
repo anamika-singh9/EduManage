@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Chairman’s Message
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    Chairman’s Message
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+    <div class="col-sm-8 mx-auto">
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <img src="/static/images/chairmain/chairmain.jpg" alt="" class="pb-3">
+                <h3 class="text-primary">Er. Ajay Chaudhary</h3>
+                <h5>
+                    Chairman <br>
+                    Seth Anandram Jaipuria School, Ved Campus – Barabanki
+                </h5>
+            </div>
+            <div class="col-sm-6">
+                <h6 class="fw-bold">Dear Students, Parents, and Well-wishers,</h6>
+                <span>
+                    “In education lies the key to unlocking the golden door of freedom.” These profound words of Dr. A.P.J. Abdul Kalam resonate deeply with our mission here at Seth Anandram Jaipuria School. As the chairman of our esteemed institution, I am honored to lead a community dedicated to harnessing the transformative power of education.
+                    <br><br>
+                    We firmly believe that education is not just about imparting knowledge but also empowering individuals to shape their destinies and change the world. In recognizing the pressing need for academic and skill-based learning in our community, we have tailored our curriculum to focus on practical expertise and hands-on experience.
+                    <br><br>
+                    Our approach goes beyond traditional methods of education; we aim to equip our students with the skills they need to thrive in today’s dynamic and competitive  world. In addition, we will instil values and attitudes for learners to lead with confidence.
+                    <br><br>
+                    Through a combination of innovative teaching methods and real-world applications, we nurture the talents and aspirations of our students. Whether it’s developing academic rigour, mastering technical skills, honing creative talents, or building critical thinking abilities, our school provides a supportive environment where every student can flourish.
+                    <br><br>
+                    As we forge ahead on this noble path, let us unlock the doors of opportunity and pave the way for a brighter tomorrow through the power of new-age education.
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main end -->
+{% endblock %}

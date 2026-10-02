@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row py-3 bg-danger">
+            <div class="col-sm-9 text-white">
+                <h3>Welcome to Admin Pannel</h3>
+            </div>
+            <div class="col-sm-3 text-center">
+                <a href="{% url 'adminapp:adminlogout' %}" class="text-decoration-none text-primary fs-3 text-white">Logout</a>
+                <span class="text-white">{{adminid}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 mt-3">
+                <h3 class="text-center">Admin Dashboard</h3>
+                <a href="{% url 'adminapp:adminhome' %}" class="btn btn-dark w-100 mt-2">Dashboard</a>
+                <a href="/admin/" class="btn btn-dark w-100 mt-2" target="_blank" rel="noopener">Django Admin</a>
+
+                <div class="dropdown">
+                    <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                      Manage Teacher
+                    </a>
+                    <ul class="dropdown-menu text-end bg-dark ">
+                      <li><a class="dropdown-item text-primary" href="{% url 'adminapp:addteacher' %}">Add Teacher</a></li>
+                      <li><a class="dropdown-item text-primary" href="{% url 'adminapp:viewteacher' %}">View Teacher</a></li>
+                     
+                    </ul>
+                    <div class="dropdown">
+                        <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                          Manage Class
+                        </a>
+                        <ul class="dropdown-menu text-end bg-dark ">
+                          <li><a class="dropdown-item text-primary" href="{% url 'adminapp:addclass' %}">Add Class</a></li>
+                          <li><a class="dropdown-item text-primary" href="{% url 'adminapp:viewclass' %}">View Class</a></li>
+                         
+                        </ul>
+                  </div>
+                  <div class="dropdown">
+                    <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                      Manage Subject
+                    </a>
+                    <ul class="dropdown-menu text-end bg-dark ">
+                      <li><a class="dropdown-item text-primary" href="{% url 'adminapp:addsubject' %}">Add Subject</a></li>
+                      <li><a class="dropdown-item text-primary" href="{% url 'adminapp:viewsubject' %}">View Subject</a></li>
+                    </ul>
+              </div>
+              <!-- <div class="dropdown">
+                <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                  Manage class
+                </a>
+                <ul class="dropdown-menu text-end bg-dark ">
+                  <li><a class="dropdown-item text-primary" href="{% url 'adminapp:addclass' %}">Add Class</a></li>
+                  <li><a class="dropdown-item text-primary" href="{% url 'adminapp:viewclass' %}">View Class</a></li>
+                </ul>
+          </div> -->
+          <div class="dropdown">
+            <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Manage Notification
+            </a>
+            <ul class="dropdown-menu text-end bg-dark ">
+                <li><a class="dropdown-item text-primary" href="{% url 'adminapp:addnoti' %}">Add Notification</a></li>
+                <li><a class="dropdown-item text-primary" href="{% url 'adminapp:viewnoti' %}">View Notification</a></li>
+            </ul>
+        </div>
+          <div class="dropdown">
+            <a class="btn w-100 bg-dark mt-2 text-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+              Manage Student
+            </a>
+            <ul class="dropdown-menu text-end bg-dark ">
+              <li><a class="dropdown-item text-primary" href="{% url 'adminapp:addstudent' %}">Add Student</a></li>
+              <li><a class="dropdown-item text-primary" href="{% url 'adminapp:viewstudent' %}">View Student</a></li>
+            </ul>
+      </div>
+
+                <a href="{% url 'adminapp:viewparent' %}" class="btn btn-dark w-100 mt-2">Parents</a>
+                <a href="{% url 'adminapp:feedashboard' %}" class="btn btn-dark w-100 mt-2">Fee Dashboard</a>
+                <a href="{% url 'adminapp:timetable' %}" class="btn btn-dark w-100 mt-2">Timetable</a>
+                <a href="{% url 'adminapp:viewvideo' %}" class="btn btn-dark w-100 mt-2">Video Gallery</a>
+                <a href="{% url 'adminapp:viewenquiry' %}" class="btn btn-dark w-100 mt-2">View Enquiry</a>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            {% for m in messages %}<div class="alert alert-{% if m.tags == 'error' %}danger{% else %}{{m.tags}}{% endif %} alert-dismissible fade show mt-2" role="alert">{{m}}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>{% endfor %}
+            {% block admin %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

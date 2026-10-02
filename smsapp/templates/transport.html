@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<style>
+    .fs-cl {
+        color: #771b22;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Transport
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                        Transport
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+        <h1>
+            TRANSPORT
+        </h1>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7" style="text-align: justify;">
+        <span>
+
+            Parents should not try to overtake and stop the school bus to facilitate the boarding of their wards as this
+            endangers the safety of the bus and its occupants. This act will lead to strict disciplinary action.
+        </span>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 ms-10  fw-bold fa-solid ">
+        <span> Bus&nbsp; Rules</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                Parents should not argue with the teachers present in the bus or the conductor / driver. If there is any
+                problem, a written communication should be forwarded to the Administrative Office.</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <span><i class="fa-regular fa-circle-check fs-5 fs-cl"></i>
+            Parents are requested not to board school buses to see off or receive their wards.</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                
+Under no circumstances are students allowed to go behind or under the parked buses within the school campus. Students are also not allowed to sit in the parked buses during school hours.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                Under no circumstances, should students touch the instrument panel of the buses.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                A student using the school bus is expected to be at the bus stop at least ten minutes before the
+                scheduled arrival of the bus. The student has to be on the correct side of the arriving bus. The
+                scheduled pick-up time is available with the transport-in-charge at the school. The school reserves the
+                right to alter the timings, routes and stops as and when necessary.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                If a student misses his allotted bus he should not try to board any other bus. It is the responsibility
+                of the parents to drop off their wards to the school. However, the student will return by the allotted
+                bus.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                If any parent whose child is availing school transport service wishes to take their ward privately in
+                his/her own transport, he/she has to collect the Permission Slip from the school authorities half an
+                hour before the end of the last clas
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                Students are allowed to use only the allotted bus and bus stop. No change can be allowed without prior
+                written permission of the school.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                The buses will not wait for latecomers.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                The school will not be held responsible for any lapse in the bus services. In case of any discrepancy,
+                parents may meet the transport-in-charge.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                No student should come near the entry door of the bus until it comes to a complete halt. The front door
+                of the bus is the only authorised entrance and exit.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                Students should stay away from the main road until the bus arrives.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                All students must occupy vacant seats immediately after boarding their respective buses. Reservation of
+                seats for co-commuters are not allowed under any circumstances.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7 mt-2">
+        <div style="display: flex;">
+            <div><i class="fa-regular fa-circle-check fs-5 fs-cl mt-2"></i></div>
+            <div class="ms-2">
+                The school will not be held responsible for any lapse in the bus services. In case of any discrepancy,
+                parents may meet the transport-in-charge.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- main end -->
+{% endblock %}

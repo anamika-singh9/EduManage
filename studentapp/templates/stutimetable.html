@@ -1,0 +1,14 @@
+{% extends 'studentbase.html' %}
+{% block student %}
+<div class="row"><div class="col-sm-12">
+  <h1 class="text-center my-3">Timetable — Class {{student.sclass}}</h1>
+  <div class="table-responsive"><table class="table table-bordered text-center align-middle">
+    <tr><th>Period</th>{% for d,label in days %}<th>{{label}}</th>{% endfor %}</tr>
+    {% for period,start,end,cells in grid %}
+    <tr><th>P{{period}}<br><small class="text-muted">{{start|time:"H:i"}}-{{end|time:"H:i"}}</small></th>
+      {% for cell in cells %}<td>{% if cell %}<b>{{cell.subject}}</b><br><small>{{cell.teacher.name|default:"-"}}</small>{% else %}<span class="text-muted">-</span>{% endif %}</td>{% endfor %}
+    </tr>
+    {% empty %}<tr><td colspan="7">Timetable not published yet.</td></tr>{% endfor %}
+  </table></div>
+</div></div>
+{% endblock %}

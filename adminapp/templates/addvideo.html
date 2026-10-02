@@ -1,0 +1,11 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-7 mx-auto">
+  <h1 class="text-center my-3">Add Video</h1>
+  <form method="post" class="row g-3">{% csrf_token %}
+    <div class="col-12"><label class="form-label">Title</label><input name="title" class="form-control" required></div>
+    <div class="col-12"><label class="form-label">YouTube link</label><input name="url" class="form-control" placeholder="https://www.youtube.com/watch?v=..." required></div>
+    <div class="col-12"><button class="btn btn-primary">Add to Gallery</button> <a href="{% url 'adminapp:viewvideo' %}" class="btn btn-outline-secondary">Cancel</a></div>
+  </form>
+</div></div>
+{% endblock %}

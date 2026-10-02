@@ -1,0 +1,382 @@
+#khushi ul li a:hover{
+
+    background-color: blue;
+
+    color: white;
+
+    border-radius: 10px;
+
+}
+
+.loginbtn
+
+{
+
+    background-color: rgb(10, 40, 54);
+
+}
+
+.loginbtn:hover
+
+{
+
+    background-color: red;
+
+}
+
+#khushi ul li a
+
+{
+
+    color: blue;
+
+}
+
+#hov:hover
+
+{
+
+    box-shadow: 5px 5px 5px 5px,gray;
+
+}
+
+#img
+
+{
+
+    background-image: url("/static/images/f1.jpeg");
+
+    height: 150px;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+}
+
+#aboutimg
+
+{
+
+    background-image: url("/static/images/about/asset 4.jpeg");
+
+    height: 235px;
+
+    /* background-repeat: no-repeat;
+
+    background-size: cover; */
+
+}
+
+
+/* =========================================================
+   FOOTER CSS
+   ========================================================= */
+
+
+/* Top maroon line */
+
+.footer-top-line {
+
+    height: 5px;
+
+    background-color: #9e2942;
+
+    margin: 0;
+
+}
+
+
+/* Main Footer */
+
+.school-footer {
+
+    background-color: #202427;
+
+    color: #ffffff;
+
+    margin: 0;
+
+}
+
+
+/* Footer Content */
+
+.footer-content {
+
+    padding-top: 35px;
+
+    padding-bottom: 35px;
+
+}
+
+
+/* Footer Headings */
+
+.school-footer h4 {
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================================
+   ABOUT US
+   ========================================================= */
+
+.footer-about {
+
+    padding-right: 30px;
+
+}
+
+.footer-about p {
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    margin-bottom: 12px;
+
+    text-align: left;
+
+}
+
+
+/* =========================================================
+   QUICK LINKS
+   ========================================================= */
+
+.footer-links {
+
+    padding-left: 25px;
+
+    padding-right: 25px;
+
+}
+
+.footer-links a {
+
+    display: block;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+}
+
+.footer-links a:first-of-type {
+
+    padding-top: 0;
+
+}
+
+.footer-links a:hover {
+
+    color: #ffffff;
+
+}
+
+.footer-links span {
+
+    margin-right: 7px;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================================
+   CONTACT US
+   ========================================================= */
+
+.footer-contact {
+
+    padding-left: 25px;
+
+}
+
+.footer-contact p {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+
+}
+
+.footer-contact p i {
+
+    width: 20px;
+
+    font-size: 16px;
+
+    margin-top: 2px;
+
+}
+
+
+/* =========================================================
+   FOLLOW US
+   ========================================================= */
+
+.follow-title {
+
+    margin-top: 20px;
+
+    margin-bottom: 15px !important;
+
+}
+
+.social-icons {
+
+    display: flex;
+
+    gap: 18px;
+
+}
+
+.social-icons a {
+
+    width: 38px;
+
+    height: 38px;
+
+    background-color: #ffffff;
+
+    color: #333333;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    transition: 0.2s;
+
+}
+
+.social-icons a:hover {
+
+    color: #333333;
+
+}
+
+
+/* =========================================================
+   BOTTOM MAROON LINE
+   ========================================================= */
+
+.footer-bottom-line {
+
+    height: 5px;
+
+    background-color: #9e2942;
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   COPYRIGHT
+   ========================================================= */
+
+.copyright-footer {
+
+    background-color: #202427;
+
+    color: #ffffff;
+
+    margin: 0;
+
+}
+
+.copyright-footer > div {
+
+    padding-top: 25px;
+
+    padding-bottom: 22px;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE FOOTER
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .footer-about,
+    .footer-links,
+    .footer-contact {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+        margin-bottom: 25px;
+
+    }
+
+    .footer-content {
+
+        padding-top: 30px;
+
+        padding-bottom: 15px;
+
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .footer-about p {
+
+        line-height: 1.6;
+
+    }
+
+    .footer-links {
+
+        padding-top: 5px;
+
+    }
+
+    .footer-contact {
+
+        padding-top: 5px;
+
+    }
+
+}

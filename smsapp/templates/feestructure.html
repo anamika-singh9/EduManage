@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Fee Structure
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    Fee Structure
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+    <div class="col-sm-10 mx-auto">
+        <h2>FEE STRUCTURE</h2>
+        <p>
+            School fees are charged on a termly basis and cover tuition, learning material and the facilities
+            used through the academic year. Fees can be paid online, by cheque, or in person at the school's
+            accounts office, within the due dates announced at the start of each term.
+        </p>
+        <p>
+            The exact fee amount varies by class and is revised at the start of every academic session. For the
+            current session's detailed fee schedule, please
+            <a href="{% url 'contact' %}">contact the accounts / admission office</a>.
+        </p>
+        <p>
+            Once a student is enrolled, their fee payment and due amount are tracked directly in the
+            <a href="{% url 'login' %}">Student Portal</a> of this School Management System, so parents and
+            students always have an up-to-date view of what has been paid and what remains due.
+        </p>
+    </div>
+</div>
+
+<!-- main end -->
+{% endblock %}

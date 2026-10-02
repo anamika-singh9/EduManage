@@ -1,0 +1,41 @@
+{% extends 'studentbase.html' %}
+{% load static %}
+{% block student %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Student Dashboard</h1>
+        <div class="row mt-5">
+            <div class="col-sm-4">
+                <div class="card w-100">
+                    <div class="card-body">
+                      <h5 class="card-title">My Profile</h5>
+                      <p class="card-text mb-1"><b>Name:</b> {{student.name}}</p>
+                      <p class="card-text mb-1"><b>Roll No:</b> {{student.rollno}}</p>
+                      <p class="card-text mb-1"><b>Class:</b> {{student.sclass}}</p>
+                      <p class="card-text mb-0"><b>Email:</b> {{student.emailaddress}}</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                <div class="card w-100">
+                    <div class="card-body">
+                      <h5 class="card-title">Fee Status</h5>
+                      <p class="card-text mb-1"><b>Fee Paid:</b> {{student.feepaid}}</p>
+                      <p class="card-text mb-0"><b>Fee Due:</b> {{student.duefee}}</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                <div class="card w-100">
+                    <div class="card-body">
+                      <h5 class="card-title">Quick Links</h5>
+                      <a href="{% url 'studentapp:stuattend' %}" class="d-block mb-2">View My Attendance</a>
+                      <a href="{% url 'studentapp:stuslm' %}" class="d-block">View Study Material</a>
+                    </div>
+                  </div>
+               </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

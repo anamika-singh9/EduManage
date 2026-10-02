@@ -1,0 +1,24 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-sm-12">
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <h1 class="mb-0">Students <small class="text-muted fs-6">({{page.paginator.count}})</small></h1>
+    <a href="{% url 'adminapp:addstudent' %}" class="btn btn-primary">+ Add Student</a>
+  </div>
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-md-5"><input name="q" value="{{q}}" class="form-control" placeholder="Search by name, email or roll no"></div>
+    <div class="col-md-3"><select name="sclass" class="form-select"><option value="">All classes</option>
+      {% for c in cl %}<option value="{{c.class_name}}" {% if c.class_name == sclass %}selected{% endif %}>{{c.class_name}}</option>{% endfor %}</select></div>
+    <div class="col-auto"><button class="btn btn-dark">Search</button> <a href="{% url 'adminapp:viewstudent' %}" class="btn btn-outline-secondary">Reset</a></div>
+  </form>
+  <div class="table-responsive"><table class="table table-striped align-middle">
+    <tr><th>Roll No</th><th>Name</th><th>Father</th><th>Mother</th><th>Gender</th><th>D.O.B</th><th>Contact</th><th>Email</th><th>Class</th><th>Address</th><th>Paid Fee</th><th>Due Fee</th><th>Added</th><th>Action</th></tr>
+    {% for t in st %}
+    <tr><td>{{t.rollno}}</td><td>{{t.name}}</td><td>{{t.fname}}</td><td>{{t.mname}}</td><td>{{t.gender}}</td><td>{{t.dob}}</td><td>{{t.contactno}}</td><td>{{t.emailaddress}}</td><td>{{t.sclass}}</td><td>{{t.address}}</td><td>{{t.feepaid}}</td><td>{{t.duefee}}</td><td>{{t.created_date}}</td>
+      <td class="text-nowrap"><a href="{% url 'adminapp:editstudent' t.id %}" class="btn btn-sm btn-success">Edit</a>
+        <form method="post" action="{% url 'adminapp:deletestudent' t.id %}" class="d-inline" onsubmit="return confirm('Delete {{t.name|escapejs}} and all attendance/results? This cannot be undone.');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="14" class="text-center">No students found.</td></tr>{% endfor %}
+  </table></div>
+  {% include '_pager.html' %}
+</div></div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-sm-12">
+  <h1 class="my-3">Timetable</h1>
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-md-3"><select name="sclass" class="form-select" onchange="this.form.submit()">
+      {% for c in cl %}<option value="{{c.class_name}}" {% if c.class_name == sclass %}selected{% endif %}>{{c.class_name}}</option>{% endfor %}
+    </select></div>
+  </form>
+  <div class="table-responsive"><table class="table table-bordered text-center align-middle">
+    <tr><th>Period</th>{% for d,label in days %}<th>{{label}}</th>{% endfor %}</tr>
+    {% for period,start,end,cells in grid %}
+    <tr><th>P{{period}}<br><small class="text-muted">{{start|time:"H:i"}}-{{end|time:"H:i"}}</small></th>
+      {% for cell in cells %}<td>{% if cell %}<b>{{cell.subject}}</b><br><small>{{cell.teacher.name|default:"-"}}</small><br>
+        <form method="post" action="{% url 'adminapp:deletetimetable' cell.id %}" onsubmit="return confirm('Remove this slot?');">{% csrf_token %}<button class="btn btn-sm btn-outline-danger mt-1">&times;</button></form>
+        {% else %}<span class="text-muted">-</span>{% endif %}</td>{% endfor %}
+    </tr>
+    {% empty %}<tr><td colspan="7">No periods added for this class yet.</td></tr>{% endfor %}
+  </table></div>
+
+  <h5 class="mt-4">Add / Update a Slot</h5>
+  <form method="post" class="row g-2">{% csrf_token %}
+    <input type="hidden" name="sclass" value="{{sclass}}">
+    <div class="col-md-2"><select name="day" class="form-select" required>{% for d,label in days %}<option value="{{d}}">{{label}}</option>{% endfor %}</select></div>
+    <div class="col-md-1"><input type="number" name="period" min="1" max="8" class="form-control" placeholder="Period" required></div>
+    <div class="col-md-2"><input type="time" name="start_time" class="form-control" required></div>
+    <div class="col-md-2"><input type="time" name="end_time" class="form-control" required></div>
+    <div class="col-md-2"><input name="subject" class="form-control" placeholder="Subject" required></div>
+    <div class="col-md-2"><select name="teacher" class="form-select"><option value="">-- Teacher --</option>
+      {% for t in teachers %}<option value="{{t.id}}">{{t.name}}</option>{% endfor %}</select></div>
+    <div class="col-auto"><button class="btn btn-primary">Save Slot</button></div>
+  </form>
+</div></div>
+{% endblock %}

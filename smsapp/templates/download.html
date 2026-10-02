@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Download
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    Download
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+    <div class="col-sm-10 mx-auto">
+        <h2>SCHOOL PROSPECTUS</h2>
+        <p>
+            The school prospectus contains detailed information about the curriculum, facilities, fee
+            structure and admission timelines for the current academic session.
+        </p>
+        <p>
+            A printed or digital copy of the prospectus can be collected from the school's admission office,
+            or requested through the <a href="{% url 'contact' %}">Contact Us</a> page. Once uploaded by the
+            school administrator, notices and downloadable circulars also appear on the
+            <a href="{% url 'newsevent' %}">News & Events</a> page and in the notification bar on the
+            <a href="{% url 'index' %}">home page</a>.
+        </p>
+    </div>
+</div>
+
+<!-- main end -->
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'teacherbase.html' %}
+{% load static %}
+
+
+{% block teacher %}
+<div class="row bg-secondary">
+    <div class="col-sm-12 ">
+        <h1  class="text-center">Teacher profile</h1>
+        <form method="post" enctype="multipart/form-data" action="{% url 'teacherapp:uploadpic' %}">
+            {% csrf_token %}
+
+
+            <div class="row">
+                <div class="col-md-4 text-center mx-auto">
+                    {% if teacher.pic %}
+                    <img src="{{teacher.pic.url}}" alt="" class="img-fluid border" height="200px" width="200px"/>
+                    {% endif %}
+                    <input type="file" name="pic">
+                    <input type="submit" value="upload" class="btn btn-success">
+                </div>
+            </div>
+        </form>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="n" class="form-label">Name</label>
+                    <input type="text" name="name" value="{{teacher.name}}" id="n" class="form-control rounded-0"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="fn" class="form-label">Father's Name</label>
+                    <input type="text" name="fname" value="{{teacher.fname}}" id="fn" class="form-control rounded-0"/>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="mn" class="form-label">Mother's Name</label>
+                    <input type="text" name="mname" value="{{teacher.mname}}" id="mn" class="form-control rounded-0"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="g" class="form-label">Gender</label>
+                    <input type="text" name="gender" value="{{teacher.gender}}" id="g" class="form-control rounded-0"/>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="date" name="dob" value="{{teacher.dob}}" id="dob" class="form-control rounded-0"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="cn" class="form-label">Contact</label>
+                    <input type="text" name="contact" value="{{teacher.contact}}" id="cn" class="form-control rounded-0"/>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="em" class="form-label">Email Address</label>
+                    <input type="email" name="emailaddress" value="{{teacher.emailaddress}}" id="em" class="form-control rounded-0" readonly/>
+                </div>
+                <div class="col-md-6">
+                    <label for="cl" class="form-label">Class Teacher</label>
+                    <input type="text" name="tclass" value="{{teacher.tclass}}" id="cl" class="form-control rounded-0" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="ql" class="form-label">Qualification</label>
+                    <input type="text" name="qualification" value="{{teacher.qualification}}" id="ql" class="form-control rounded-0"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="sal" class="form-label">Salary</label>
+                    <input type="text" name="salary" value="{{teacher.salary}}" id="sal" class="form-control rounded-0" readonly/>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <label for="ad" class="form-label">Address</label>
+                    <textarea type="text" name="address"  id="ad" class="form-control rounded-0">{{teacher.address}}</textarea>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

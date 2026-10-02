@@ -1,0 +1,35 @@
+{% extends 'teacherbase.html' %}
+{% load static %}
+{% block teacher %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Teacher Dashboard</h1>
+        <div class="row mt-5">
+            <div class="col-sm-4">
+                <div class="card w-100"><div class="card-body">
+                    <h5 class="card-title">My Profile</h5>
+                    <p class="mb-1"><b>Name:</b> {{teacher.name}}</p>
+                    <p class="mb-1"><b>Class Teacher of:</b> {{teacher.tclass}}</p>
+                    <p class="mb-0"><b>Email:</b> {{teacher.emailaddress}}</p>
+                </div></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card w-100"><div class="card-body">
+                    <h5 class="card-title">Today's Attendance</h5>
+                    <p class="mb-1"><span class="badge bg-success">Present: {{present_today}}</span></p>
+                    <p class="mb-0"><span class="badge bg-danger">Absent: {{absent_today}}</span></p>
+                    <a href="{% url 'teacherapp:addattend' %}" class="d-block mt-2">Mark today's attendance &rarr;</a>
+                </div></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card w-100"><div class="card-body">
+                    <h5 class="card-title">Quick Links</h5>
+                    <a href="{% url 'teacherapp:viewslm' %}" class="d-block mb-2">Study Material</a>
+                    <a href="{% url 'examapp:exams' %}" class="d-block mb-2">Exams &amp; Results</a>
+                    <a href="{% url 'teacherapp:viewattend' %}" class="d-block">Attendance Records</a>
+                </div></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

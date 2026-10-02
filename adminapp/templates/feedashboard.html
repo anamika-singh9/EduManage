@@ -1,0 +1,26 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-sm-12">
+  <h1 class="my-3">Fee Dashboard</h1>
+  <div class="row mb-3">
+    <div class="col-md-4"><div class="card text-bg-success"><div class="card-body"><h4>Rs. {{summary.collected}}</h4><small>Total Collected</small></div></div></div>
+    <div class="col-md-4"><div class="card text-bg-danger"><div class="card-body"><h4>Rs. {{summary.outstanding}}</h4><small>Total Outstanding</small></div></div></div>
+    <div class="col-md-4"><div class="card text-bg-warning"><div class="card-body"><h4>{{summary.defaulters}}</h4><small>Students with dues</small></div></div></div>
+  </div>
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-md-5"><input name="q" value="{{q}}" class="form-control" placeholder="Search by name or roll no"></div>
+    <div class="col-md-3"><select name="sclass" class="form-select"><option value="">All classes</option>
+      {% for c in cl %}<option value="{{c.class_name}}" {% if c.class_name == sclass %}selected{% endif %}>{{c.class_name}}</option>{% endfor %}</select></div>
+    <div class="col-auto"><button class="btn btn-dark">Search</button> <a href="{% url 'adminapp:feedashboard' %}" class="btn btn-outline-secondary">Reset</a></div>
+  </form>
+  <table class="table table-striped align-middle">
+    <tr><th>Roll No</th><th>Name</th><th>Class</th><th>Paid</th><th>Due</th><th>Action</th></tr>
+    {% for s in st %}
+    <tr class="{% if s.duefee|add:'0' > 0 %}table-danger{% endif %}">
+      <td>{{s.rollno}}</td><td>{{s.name}}</td><td>{{s.sclass}}</td><td>Rs. {{s.feepaid}}</td><td>Rs. {{s.duefee}}</td>
+      <td><a href="{% url 'adminapp:studentfees' s.id %}" class="btn btn-sm btn-primary">Manage / Receipts</a></td></tr>
+    {% empty %}<tr><td colspan="6" class="text-center">No students found.</td></tr>{% endfor %}
+  </table>
+  {% include '_pager.html' %}
+</div></div>
+{% endblock %}

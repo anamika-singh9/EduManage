@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / About School
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    About School
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <h2>ABOUT US </h2>
+        <span>Seth Anandram Jaipuria School, Ved Campus – Barabanki is committed to ‘Empower, Enthuse and Excel’ in providing quality education and ensuring that every child is taught the necessary values to guide him/her through the journey of life. We at Seth Anandram Jaipuria School endow education for LIFE!
+        </span>
+    </div>
+</div>
+<div class="row mt-5" style="background-color: #f7f7f7;">
+    <div class="col-sm-10 mx-auto p-5">
+        <h6>Who We Are</h6>
+        <span>Seth Anandram Jaipuria School, Ved Campus is spread over a lush green campus of 2.16 acres. It offers an extensive range of facilities for the all-round development of every child. Every classroom of the school has Digital Smart Boards.</span>
+        <br>
+        <span>We adopt a child-centric approach to education and recognize talent in our students. New, modern-day pedagogical concepts such as Design Thinking, Literacy and Numeracy Skills are part of the school’s curriculum. We stress on good values like compassion, empathy, kindness, solidarity and tolerance as much as we emphasize on intellect, wit, critical thinking, and analytical reasoning.</span>
+    </div>
+</div>
+<!-- main end -->
+{% endblock %}

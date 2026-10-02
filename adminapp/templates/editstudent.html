@@ -1,0 +1,23 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-9 mx-auto">
+  <h1 class="text-center my-3">Edit Student</h1>
+  <form method="post" enctype="multipart/form-data" class="row g-3">{% csrf_token %}
+    <div class="col-md-4"><label class="form-label">Roll No</label><input type="number" min="1" name="rollno" value="{{st.rollno}}" class="form-control" required></div>
+    <div class="col-md-8"><label class="form-label">Name</label><input name="name" value="{{st.name}}" class="form-control" required></div>
+    <div class="col-md-6"><label class="form-label">Father's Name</label><input name="fname" value="{{st.fname}}" class="form-control" required></div>
+    <div class="col-md-6"><label class="form-label">Mother's Name</label><input name="mname" value="{{st.mname}}" class="form-control" required></div>
+    <div class="col-md-4"><label class="form-label">Gender</label><select name="gender" class="form-select"><option {% if st.gender == 'Male' %}selected{% endif %}>Male</option><option {% if st.gender == 'Female' %}selected{% endif %}>Female</option></select></div>
+    <div class="col-md-4"><label class="form-label">D.O.B</label><input name="dob" value="{{st.dob}}" class="form-control" required></div>
+    <div class="col-md-4"><label class="form-label">Contact</label><input name="contact" value="{{st.contactno}}" class="form-control" required></div>
+    <div class="col-md-6"><label class="form-label">Email (login id)</label><input type="email" name="emailaddress" value="{{st.emailaddress}}" class="form-control" required></div>
+    <div class="col-md-6"><label class="form-label">Class</label><select name="sclass" class="form-select">{% for c in cl %}<option {% if c.class_name == st.sclass %}selected{% endif %}>{{c.class_name}}</option>{% endfor %}</select></div>
+    <div class="col-12"><label class="form-label">Address</label><textarea name="address" class="form-control" required>{{st.address}}</textarea></div>
+    <div class="col-md-6"><label class="form-label">Fee Paid</label><input type="number" min="0" step="any" name="feepaid" value="{{st.feepaid}}" class="form-control" required></div>
+    <div class="col-md-6"><label class="form-label">Due Fee</label><input type="number" min="0" step="any" name="duefee" value="{{st.duefee}}" class="form-control" required></div>
+    <div class="col-md-6"><label class="form-label">New password <small class="text-muted">(leave blank to keep)</small></label><input type="password" name="password" class="form-control"></div>
+    <div class="col-md-6"><label class="form-label">Photo</label><input type="file" name="pic" accept="image/*" class="form-control"></div>
+    <div class="col-12"><button class="btn btn-primary">Save Changes</button> <a href="{% url 'adminapp:viewstudent' %}" class="btn btn-outline-secondary">Cancel</a></div>
+  </form>
+</div></div>
+{% endblock %}

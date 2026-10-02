@@ -1,0 +1,15 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-sm-12">
+  <div class="d-flex justify-content-between align-items-center my-3"><h1 class="mb-0">Classes</h1>
+    <a href="{% url 'adminapp:addclass' %}" class="btn btn-primary">+ Add Class</a></div>
+  <table class="table table-striped align-middle">
+    <tr><th>ID</th><th>Class Name</th><th>Seats</th><th>Room No.</th><th>Added</th><th>Action</th></tr>
+    {% for c in cl %}
+    <tr><td>{{c.cid}}</td><td>{{c.class_name}}</td><td>{{c.seats}}</td><td>{{c.roomno}}</td><td>{{c.created_date}}</td>
+      <td class="text-nowrap"><a href="{% url 'adminapp:editclass' id=c.cid %}" class="btn btn-sm btn-success">Edit</a>
+        <form method="post" action="{% url 'adminapp:deleteclass' c.cid %}" class="d-inline" onsubmit="return confirm('Delete class {{c.class_name|escapejs}} and its subjects?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="6" class="text-center">No classes added.</td></tr>{% endfor %}
+  </table>
+</div></div>
+{% endblock %}

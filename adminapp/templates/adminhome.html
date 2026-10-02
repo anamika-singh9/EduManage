@@ -1,0 +1,97 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<div class="row">
+    <div class="col-sm-10  mx-auto">
+        <div class="row mt-5">
+           <div class="col-sm-4">
+            <div class="card" class="w-100 ">
+                <div class="card-body">
+                  <h1><i class="fa-solid fa-user-graduate"></i> {{stu_count}}</h1>
+                  <p class="card-text">Total Students</p>
+                </div>
+              </div>
+           </div>
+           <div class="col-sm-4">
+            <div class="card" class="w-100">
+                <div class="card-body">
+                 <h1><i class="fa-solid fa-user-graduate"></i> {{t_count}}</h1>
+                 <p class="card-text">Total Teachers</p>
+                </div>
+              </div>
+           </div>
+           <div class="col-sm-4">
+            <div class="card" class="w-100">
+                <div class="card-body">
+                  <h1><i class="fa-solid fa-user-graduate"></i> {{ccount}}</h1>
+                  <p class="card-text">Total Classes</p>
+                </div>
+              </div>
+           </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-4">
+                <div class="card" class="w-100">
+                    <div class="card-body">
+                      <p><i class="fa-solid fa-user-graduate"></i> {{ps}} Present Today</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                <div class="card" class="w-100">
+                    <div class="card-body">
+                      <p><i class="fa-solid fa-user-graduate"></i> {{abs}} Absent Today</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                <div class="card" class="w-100">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+               </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-4">
+                <div class="card" class="w-100">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                <div class="card" class="w-100">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                <div class="card" class="w-100">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+               </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-sm-11 mx-auto">
+            <div class="row">
+                <div class="col-md-4"><div class="card text-bg-success"><div class="card-body"><h4>Rs. {{fee_collected}}</h4><small>Fee Collected</small></div></div></div>
+                <div class="col-md-4"><div class="card text-bg-danger"><div class="card-body"><h4>Rs. {{fee_due}}</h4><small>Fee Outstanding</small></div></div></div>
+                <div class="col-md-4"><div class="card text-bg-warning"><div class="card-body"><h4>{{defaulters}}</h4><small>Students with dues</small></div></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-11 mx-auto text-end">
+            <a href="{% url 'adminapp:export_attendance_csv' %}" class="btn btn-outline-success">
+                <i class="fa-solid fa-file-csv"></i> Export Attendance (CSV)
+            </a>
+        </div>
+    </div>
+</div>
+
+{%  endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Principal’s Message
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    Principal’s Message
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="/static/images/chairmain/principal.jpg" alt="">
+            </div>
+            <div class="col-sm-8">
+                <p>As you explore our offerings, you’ll discover answers to your initial inquiries about our school, academic programs, and student life. Serving as the Principal, I am honored to be part of an educational institution where every stakeholder is a learner, and each day presents an opportunity for discovery. We view ourselves as a community of learners, where teachers, parents, and staff are actively engaged in the learning process.
+                </p><br><br>
+                <p>Maintaining high standards, I am committed to understanding and enhancing the educational process. We employ a dual strategy approach—Love and Logic—to create a positive learning environment. Love fosters trusting relationships, ensuring students feel respected and valued, while Logic instills personal responsibility, self-control, decision-making skills, self-confidence, and character-building with high moral values.
+                </p>
+                <p>
+                    Your child’s learning journey is a collaborative effort between home and school. We believe that a strong partnership enhances your child’s overall experience. Learning is inherently social, and I eagerly anticipate working with you to create a school where parents are always welcome, students engage in meaningful learning, and staff members are valued for their contributions.
+                </p><br><br>
+                <p>
+                    Together, we aim to uphold a standard of excellence, promote a positive learning atmosphere, and foster an environment where everyone can thrive. I look forward to the collective efforts of our entire community as we embark on this educational journey together.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main end -->
+{% endblock %}

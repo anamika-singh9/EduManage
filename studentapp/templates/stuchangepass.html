@@ -1,0 +1,12 @@
+{% extends 'studentbase.html' %}
+{% block student %}
+<div class="row"><div class="col-md-5 mx-auto">
+  <h1 class="text-center my-3">Change Password</h1>
+  <form method="post">{% csrf_token %}
+    <input type="password" name="oldpassword" class="form-control mb-2" placeholder="Current password" required>
+    <input type="password" name="newpassword" class="form-control mb-2" placeholder="New password (min 6 characters)" required>
+    <input type="password" name="cnfpassword" class="form-control mb-3" placeholder="Confirm new password" required>
+    <button class="btn btn-primary w-100">Update Password</button>
+  </form>
+</div></div>
+{% endblock %}

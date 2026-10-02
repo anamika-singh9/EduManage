@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!-- header start -->
+<div class="row">
+    <div class="col-sm-12 bg-danger" style="height: 5px;"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" id="aboutimg">
+        <div class="col-sm-5 text-white mt-5 px-5">
+            <a href="{% url 'index' %}">HOME</a>
+            <small>
+                / Academics
+            </small>
+            <h3>
+                <u class="text-primary"><span class="text-white">
+                    Academics
+                    </span></u>
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<!-- main start -->
+<div class="row mt-5">
+    <div class="col-sm-10 mx-auto">
+        <h2>OUR APPROACH TO LEARNING</h2>
+        <span>
+            The school follows an activity-based, interdisciplinary approach to teaching, moving beyond lectures
+            towards discussions, projects, quizzes and hands-on classroom activities. Every classroom is
+            IT-enabled, and technology is woven into everyday lessons to encourage active learning and
+            conceptual understanding rather than rote memorisation.
+        </span>
+    </div>
+</div>
+<div class="row mt-4" style="background-color: #f7f7f7;">
+    <div class="col-sm-10 mx-auto p-5">
+        <h6>Life Skills & Value Education</h6>
+        <span>
+            Alongside the academic curriculum, students take part in regular Life Skills and Value Education
+            sessions guided by trained counsellors. These sessions build confidence, empathy and decision-making
+            ability, helping every child grow into a well-rounded individual and not just an exam performer.
+        </span>
+        <br><br>
+        <h6>Our Teachers</h6>
+        <span>
+            Teachers are recruited through a rigorous selection process and are encouraged to keep learning
+            themselves — reflecting on their own teaching style so they can better understand how each student
+            learns. In the classroom, teachers act as facilitators and mentors rather than the sole source of
+            knowledge, working alongside students to build curiosity and independent thinking.
+        </span>
+    </div>
+</div>
+<!-- main end -->
+{% endblock %}

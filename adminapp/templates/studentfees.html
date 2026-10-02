@@ -1,0 +1,30 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-9 mx-auto">
+  <h1 class="my-3">Fees — {{stu.name}} <small class="text-muted fs-6">({{stu.sclass}}, Roll {{stu.rollno}})</small></h1>
+  <div class="row mb-3">
+    <div class="col-md-6"><div class="card text-bg-success"><div class="card-body"><h4>Rs. {{stu.feepaid}}</h4><small>Paid so far</small></div></div></div>
+    <div class="col-md-6"><div class="card text-bg-danger"><div class="card-body"><h4>Rs. {{stu.duefee}}</h4><small>Outstanding</small></div></div></div>
+  </div>
+  {% if stu.duefee|add:'0' > 0 %}
+  <form method="post" class="row g-2 mb-4 align-items-end">{% csrf_token %}
+    <div class="col-md-2"><label class="form-label">Amount</label><input type="number" step="0.01" min="0.01" name="amount" class="form-control" required></div>
+    <div class="col-md-2"><label class="form-label">Date</label><input type="date" name="paid_on" value="{{today|date:'Y-m-d'}}" class="form-control" required></div>
+    <div class="col-md-2"><label class="form-label">Mode</label><select name="mode" class="form-select">
+      <option>Cash</option><option>UPI</option><option>Cheque</option><option>Bank Transfer</option><option>Card</option></select></div>
+    <div class="col-md-3"><label class="form-label">Reference</label><input name="reference" class="form-control" placeholder="Txn / cheque no."></div>
+    <div class="col-md-3"><label class="form-label">Note</label><input name="note" class="form-control"></div>
+    <div class="col-auto"><button class="btn btn-primary">Record Payment</button></div>
+  </form>
+  {% else %}<p class="text-success">No dues remaining for this student.</p>{% endif %}
+  <table class="table table-striped">
+    <tr><th>Receipt No</th><th>Date</th><th>Amount</th><th>Mode</th><th>Reference</th><th>Action</th></tr>
+    {% for p in payments %}
+    <tr><td>{{p.receipt_no}}</td><td>{{p.paid_on}}</td><td>Rs. {{p.amount}}</td><td>{{p.mode}}</td><td>{{p.reference}}</td>
+      <td class="text-nowrap"><a href="{% url 'adminapp:feereceipt' p.id %}" class="btn btn-sm btn-outline-primary">PDF Receipt</a>
+        <form method="post" action="{% url 'adminapp:deletepayment' p.id %}" class="d-inline" onsubmit="return confirm('Reverse this payment? The amount will move back to due.');">{% csrf_token %}<button class="btn btn-sm btn-danger">Reverse</button></form></td></tr>
+    {% empty %}<tr><td colspan="6" class="text-center">No payments recorded yet.</td></tr>{% endfor %}
+  </table>
+  <a href="{% url 'adminapp:feedashboard' %}">&larr; Back to Fee Dashboard</a>
+</div></div>
+{% endblock %}

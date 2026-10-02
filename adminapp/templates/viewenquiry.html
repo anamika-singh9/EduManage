@@ -1,0 +1,18 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-sm-12">
+  <h1 class="text-center my-3">Enquiries <small class="text-muted fs-6">({{page.paginator.count}})</small></h1>
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-md-6"><input name="q" value="{{q}}" class="form-control" placeholder="Search by name, email or contact"></div>
+    <div class="col-auto"><button class="btn btn-dark">Search</button> <a href="{% url 'adminapp:viewenquiry' %}" class="btn btn-outline-secondary">Reset</a></div>
+  </form>
+  <div class="table-responsive"><table class="table table-striped align-middle">
+    <tr><th>#</th><th>Name</th><th>Gender</th><th>Address</th><th>Contact</th><th>Email</th><th>Enquiry</th><th>Date</th><th>Action</th></tr>
+    {% for e in enq %}
+    <tr><td>{{forloop.counter}}</td><td>{{e.name}}</td><td>{{e.gender}}</td><td>{{e.address}}</td><td>{{e.contact}}</td><td>{{e.emailaddress}}</td><td>{{e.enquirytext}}</td><td>{{e.enquirydate}}</td>
+      <td><form method="post" action="{% url 'adminapp:delenq' id=e.id %}" onsubmit="return confirm('Delete this enquiry?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="9" class="text-center">No enquiries found.</td></tr>{% endfor %}
+  </table></div>
+  {% include '_pager.html' %}
+</div></div>
+{% endblock %}

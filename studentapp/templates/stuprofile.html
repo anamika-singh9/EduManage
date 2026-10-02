@@ -1,0 +1,15 @@
+{% extends 'studentbase.html' %}
+{% block student %}
+<div class="row"><div class="col-md-8 mx-auto">
+  <h1 class="text-center my-3">My Profile</h1>
+  <div class="card"><div class="card-body"><table class="table mb-0">
+    <tr><th>Name</th><td>{{student.name}}</td></tr><tr><th>Roll No</th><td>{{student.rollno}}</td></tr>
+    <tr><th>Class</th><td>{{student.sclass}}</td></tr><tr><th>Father's Name</th><td>{{student.fname}}</td></tr>
+    <tr><th>Mother's Name</th><td>{{student.mname}}</td></tr><tr><th>Gender</th><td>{{student.gender}}</td></tr>
+    <tr><th>Date of Birth</th><td>{{student.dob}}</td></tr><tr><th>Contact</th><td>{{student.contactno}}</td></tr>
+    <tr><th>Email</th><td>{{student.emailaddress}}</td></tr><tr><th>Address</th><td>{{student.address}}</td></tr>
+    <tr><th>Fee Paid / Due</th><td>{{student.feepaid}} / {{student.duefee}}</td></tr>
+  </table></div></div>
+  <p class="text-muted mt-2">To correct any detail, please contact the school office.</p>
+</div></div>
+{% endblock %}

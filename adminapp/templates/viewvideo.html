@@ -1,0 +1,11 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<div class="row"><div class="col-md-10 mx-auto">
+  <div class="d-flex justify-content-between align-items-center my-3"><h1 class="mb-0">Video Gallery</h1>
+    <a href="{% url 'adminapp:addvideo' %}" class="btn btn-primary">+ Add Video</a></div>
+  <table class="table table-striped align-middle"><tr><th>#</th><th>Title</th><th>YouTube</th><th>Added</th><th>Action</th></tr>
+  {% for v in videos %}<tr><td>{{forloop.counter}}</td><td>{{v.title}}</td><td><a href="https://www.youtube.com/watch?v={{v.youtube_id}}" target="_blank" rel="noopener">Open</a></td><td>{{v.created_date}}</td>
+    <td><form method="post" action="{% url 'adminapp:deletevideo' v.id %}" onsubmit="return confirm('Remove this video?');">{% csrf_token %}<button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+  {% empty %}<tr><td colspan="5" class="text-center">No videos yet.</td></tr>{% endfor %}</table>
+</div></div>
+{% endblock %}
