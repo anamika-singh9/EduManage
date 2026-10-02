@@ -9,3 +9,4 @@ gunicorn>=22.0
 psycopg2-binary>=2.9
 reportlab>=4.0
 Pillow>=10.0
+python-dotenv
